@@ -1,0 +1,364 @@
+/* src/App.css */
+
+/* Global Styles */
+body, #root {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif; /* More exciting font */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a2e, #0f0f1a); /* Deep, exciting gradient */
+    color: #e0e0e0; /* Lighter text for contrast */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Connecting Message */
+.connecting-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto; /* Allow height to adjust to content */
+    width: auto; /* Allow width to adjust to content */
+    max-width: 400px; /* Constrain width to be a bar */
+    padding: 15px 30px; /* Padding for bar shape */
+    font-size: 1.1rem; /* Smaller font size */
+    color: #e0e0e0; /* Lighter text for contrast */
+    background: rgba(25, 25, 40, 0.9); /* Darker, semi-transparent card background */
+    border-radius: 10px; /* Rounded corners for the bar */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Shadow for bar */
+    border: 1px solid #00bcd4; /* Cyan border */
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(5px);
+    margin: auto; /* Center it vertically and horizontally within its parent */
+    text-align: center; /* Ensure text is centered */
+    animation: none; /* Removed pulse animation as it might be too distracting for a small bar */
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+/* --- Lobby Page Styles --- */
+.lobby-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.lobby-title {
+    font-size: 3.5rem; /* Larger title */
+    font-weight: 800; /* Extra bold */
+    margin-bottom: 50px;
+    text-align: center;
+    color: #00bcd4; /* Vibrant cyan */
+    text-shadow: 0 0 15px rgba(0, 188, 212, 0.7); /* Stronger glow */
+    letter-spacing: 2px;
+}
+
+.form-card {
+    background: rgba(25, 25, 40, 0.9); /* Darker, semi-transparent card background */
+    padding: 40px;
+    border-radius: 20px; /* More rounded */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 188, 212, 0.2); /* Deeper shadow with inner glow */
+    width: 100%;
+    max-width: 500px; /* Max width for readability */
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Increased spacing between form groups */
+    border: 2px solid #00bcd4; /* Cyan border for differentiation */
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #b0e0e6; /* Lighter cyan for labels */
+    margin-bottom: 8px;
+}
+
+.form-input {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #00bcd4; /* Cyan border */
+    background-color: #2a2a4a; /* Darker input background */
+    color: #e0e0e0;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.form-input::placeholder {
+    color: #90a4ae; /* Lighter placeholder text */
+}
+
+.form-input:focus {
+    border-color: #00e5ff; /* Brighter cyan on focus */
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.4), inset 0 1px 3px rgba(0, 0, 0, 0.3);
+    background-color: #3a3a5a; /* Slightly lighter on focus */
+}
+
+.radio-group {
+    display: flex;
+    gap: 25px; /* Spacing between radio buttons */
+    font-size: 1.1rem;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: #e0e0e0;
+}
+
+/* Custom radio button styling */
+.form-radio {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 22px; /* Larger size */
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #00bcd4; /* Cyan border */
+    background-color: #2a2a4a; /* Dark background */
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.form-radio:checked {
+    background-color: #00bcd4; /* Cyan when checked */
+    border-color: #00e5ff; /* Brighter cyan border when checked */
+}
+
+.form-radio:checked::before {
+    content: '';
+    display: block;
+    width: 10px; /* Inner dot size */
+    height: 10px;
+    border-radius: 50%;
+    background-color: white; /* White inner dot */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-radio:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.4); /* Glow on focus */
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px; /* Space between icon and text */
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.create-room-button {
+    background: linear-gradient(45deg, #00bcd4, #00e5ff); /* Cyan gradient */
+    color: white;
+    box-shadow: 0 8px 15px rgba(0, 188, 212, 0.4);
+}
+
+.create-room-button:hover {
+    background: linear-gradient(45deg, #00e5ff, #00bcd4);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 188, 212, 0.6);
+}
+
+.join-room-button {
+    background: linear-gradient(45deg, #4CAF50, #8bc34a); /* Green gradient */
+    color: white;
+    box-shadow: 0 8px 15px rgba(76, 175, 80, 0.4);
+}
+
+.join-room-button:hover {
+    background: linear-gradient(45deg, #8bc34a, #4CAF50);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(76, 175, 80, 0.6);
+}
+
+.user-id-display {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #90a4ae;
+    text-align: center;
+}
+
+/* --- Video Call Page Styles --- */
+.my-video-call-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #0f0f1a, #1a1a2e); /* Slightly different dark gradient */
+}
+
+.call-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #00bcd4;
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+.call-id {
+    font-size: 1.2rem;
+    color: #b0e0e6;
+    margin-bottom: 30px;
+}
+
+.video-grid-container {
+    width: 100%;
+    max-width: 1200px; /* Increased max-width for larger video area */
+    aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+    background-color: #0a0a1a; /* Very dark background for video area */
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(0, 188, 212, 0.3);
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
+    gap: 15px; /* Spacing between videos */
+    padding: 15px;
+    overflow: hidden; /* Ensure videos don't spill */
+    border: 2px solid #00bcd4; /* Cyan border */
+}
+
+.participant-video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #2a2a4a; /* Dark background if video not loaded */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.participant-video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px; /* Match wrapper border-radius */
+}
+
+.participant-name {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.waiting-message {
+    grid-column: 1 / -1; /* Span all columns */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b0e0e6;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.call-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px; /* Increased gap between buttons */
+    padding: 20px 40px;
+    background: rgba(25, 25, 40, 0.9); /* Card-like background */
+    border-radius: 50px; /* Pill shape */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), inset 0 0 8px rgba(0, 188, 212, 0.2);
+    border: 2px solid #00bcd4; /* Cyan border */
+    backdrop-filter: blur(8px); /* Frosted glass */
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.control-button {
+    width: 60px; /* Fixed size for circular buttons */
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: linear-gradient(45deg, #00bcd4, #00e5ff); /* Cyan gradient */
+    color: white;
+    box-shadow: 0 5px 10px rgba(0, 188, 212, 0.4);
+    transition: all 0.3s ease;
+}
+
+.control-button:hover {
+    background: linear-gradient(45deg, #00e5ff, #00bcd4);
+    transform: translateY(-5px) scale(1.1); /* More pronounced hover effect */
+    box-shadow: 0 10px 20px rgba(0, 188, 212, 0.6);
+}
+
+.control-button svg {
+    width: 32px; /* Larger icons */
+    height: 32px;
+    stroke: currentColor;
+    fill: none;
+}
+
+/* Specific button colors */
+.mic-button { background: linear-gradient(45deg, #00bcd4, #00e5ff); }
+.mic-button:hover { background: linear-gradient(45deg, #00e5ff, #00bcd4); }
+.camera-button { background: linear-gradient(45deg, #00bcd4, #00e5ff); }
+.camera-button:hover { background: linear-gradient(45deg, #00e5ff, #00bcd4); }
+.screen-share-button { background: linear-gradient(45deg, #4CAF50, #8bc34a); } /* Green */
+.screen-share-button:hover { background: linear-gradient(45deg, #8bc34a, #4CAF50); }
+.leave-button { background: linear-gradient(45deg, #f44336, #ff7043); } /* Red */
+.leave-button:hover { background: linear-gradient(45deg, #ff7043, #f44336); }
+
+.disabled-button {
+    background: #4a4a4a !important; /* Darker grey for disabled */
+    cursor: not-allowed !important;
+    opacity: 0.6;
+    box-shadow: none !important;
+    transform: none !important;
+}
