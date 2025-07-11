@@ -1,69 +1,110 @@
-# React + TypeScript + Vite
+# Video Interview Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A real-time video conferencing and collaborative code editor platform for technical interviews.
 
-Currently, two official plugins are available:
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Deployed%20App-blue?style=for-the-badge&logo=vercel)](https://video-interview-platform-app.web.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Features
+* Firebase Authentication (Email/Password, Google Sign-In)
+* Real-time video/audio calls powered by Stream.io
+* Collaborative code editor with language selection (C++, Python)
+* Room creation and joining functionality
+* Responsive UI
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Technologies Used
+* **Frontend:** React, TypeScript, Vite, Tailwind CSS, Monaco Editor, Stream Video SDK, Lucide React
+* **Backend:** Python, Flask, PyJWT, Flask-Cors, Gunicorn
+* **Database/Auth:** Google Firebase (Authentication, Firestore)
+* **Deployment:** Render (Backend), Firebase Hosting (Frontend)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Setup and Local Development
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Prerequisites
+* Node.js (v18+)
+* npm (v9+)
+* Python (v3.8+)
+* pip
+* Git
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Clone the Repository
+```bash
+git clone https://github.com/prashantk1912/video-interview-platform.git
+cd video-interview-platform 
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Backend Setup
+* Install Python Dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pip install Flask Flask-Cors PyJWT python-dotenv gunicorn
 ```
+
+* Create .env file: In the project root, create a .env file and add your Stream API Secret:
+
+```bash
+STREAM_API_SECRET=YOUR_STREAM_API_SECRET_FROM_STREAM_DASHBOARD
+```
+
+* Run Backend Locally:
+
+```bash
+python backend.py 
+```
+
+(This will run on http://localhost:5000)
+
+### 3. Frontend Setup
+* Install Node.js Dependencies:
+
+```bash
+npm install 
+```
+
+* Run Frontend Locally:
+
+```bash
+npm run dev 
+```
+
+(This will run on http://localhost:5173)
+
+### 4. Firebase Hosting Setup (for Deployment)
+* Install Firebase CLI:
+
+```bash
+npm install -g firebase-tools
+```
+
+* Login to Firebase:
+
+```bash
+firebase login
+```
+
+* **Initialize Firebase Hosting (in project root):**
+  ```bash 
+  firebase init hosting 
+  ```
+* Follow prompts:
+  # - Use an existing project: Select 'video-interview-platform-app'
+  # - Public directory: dist
+  # - Configure as single-page app: Yes
+  # - Set up automatic builds: No
+
+* Build Frontend for Production:
+
+```bash
+npm run build 
+```
+
+* Deploy Frontend:
+
+```bash
+firebase deploy --only hosting 
+```
+## Deployment Links
+* **Live Frontend:** [https://video-interview-platform-app.web.app](https://video-interview-platform-app.web.app)
+* **Live Backend (Render):** [https://intervue-da2p.onrender.com](https://intervue-da2p.onrender.com)
+---
