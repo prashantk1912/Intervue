@@ -1,5 +1,5 @@
 Flask==3.1.1
 Flask-Cors==4.0.1
-PyJWT==2.11.0
+PyJWT==2.10.0
 python-dotenv==1.1.1
 gunicorn==22.0.0 # NEW: Gunicorn is a production-ready WSGI server
