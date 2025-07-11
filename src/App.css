@@ -1,51 +1,37 @@
 /* src/App.css */
 
-/* Global Styles */
-body, #root {
+/* Global Style - Ensure full viewport height and flexible column layout */
+html, body, #root {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif; /* More exciting font */
-    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh; /* Use height: 100vh for strict full viewport height */
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #1a1a2e, #0f0f1a); /* Deep, exciting gradient */
-    color: #e0e0e0; /* Lighter text for contrast */
+    flex-direction: column; /* Main flex container for vertical layout */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    background: linear-gradient(135deg, #1a1a2e, #0f0f1a);
+    color: #e0e0e0;
     overflow-x: hidden; /* Prevent horizontal scroll */
+    box-sizing: border-box;
 }
 
-/* Connecting Message */
+/* Connecting Message - Centered within the viewport */
 .connecting-message {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: auto; /* Allow height to adjust to content */
-    width: auto; /* Allow width to adjust to content */
-    max-width: 400px; /* Constrain width to be a bar */
-    padding: 15px 30px; /* Padding for bar shape */
-    font-size: 1.1rem; /* Smaller font size */
-    color: #e0e0e0; /* Lighter text for contrast */
-    background: rgba(25, 25, 40, 0.9); /* Darker, semi-transparent card background */
-    border-radius: 10px; /* Rounded corners for the bar */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Shadow for bar */
-    border: 1px solid #00bcd4; /* Cyan border */
-    backdrop-filter: blur(5px); /* Frosted glass effect */
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    background: rgba(25, 25, 40, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid #00bcd4;
+    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    margin: auto; /* Center it vertically and horizontally within its parent */
-    text-align: center; /* Ensure text is centered */
-    animation: none; /* Removed pulse animation as it might be too distracting for a small bar */
-}
-
-@keyframes pulse {
-    from {
-        transform: scale(1);
-        opacity: 1;
-    }
-    to {
-        transform: scale(1.05);
-        opacity: 0.8;
-    }
+    text-align: center;
 }
 
 /* --- Lobby Page Styles --- */
@@ -54,34 +40,35 @@ body, #root {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    height: 100%; /* Take full height of its parent (#root) */
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    background: transparent;
 }
 
 .lobby-title {
-    font-size: 3.5rem; /* Larger title */
-    font-weight: 800; /* Extra bold */
+    font-size: 3.5rem;
+    font-weight: 800;
     margin-bottom: 50px;
     text-align: center;
-    color: #00bcd4; /* Vibrant cyan */
-    text-shadow: 0 0 15px rgba(0, 188, 212, 0.7); /* Stronger glow */
+    color: #00bcd4;
+    text-shadow: 0 0 15px rgba(0, 188, 212, 0.7);
     letter-spacing: 2px;
 }
 
 .form-card {
-    background: rgba(25, 25, 40, 0.9); /* Darker, semi-transparent card background */
+    background: rgba(25, 25, 40, 0.9);
     padding: 40px;
-    border-radius: 20px; /* More rounded */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 188, 212, 0.2); /* Deeper shadow with inner glow */
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 188, 212, 0.2);
     width: 100%;
-    max-width: 500px; /* Max width for readability */
+    max-width: 500px;
     display: flex;
     flex-direction: column;
-    gap: 25px; /* Increased spacing between form groups */
-    border: 2px solid #00bcd4; /* Cyan border for differentiation */
-    backdrop-filter: blur(8px); /* Frosted glass effect */
+    gap: 25px;
+    border: 2px solid #00bcd4;
+    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
 
@@ -93,15 +80,15 @@ body, #root {
 .form-label {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #b0e0e6; /* Lighter cyan for labels */
+    color: #b0e0e6;
     margin-bottom: 8px;
 }
 
 .form-input {
     padding: 15px;
     border-radius: 10px;
-    border: 1px solid #00bcd4; /* Cyan border */
-    background-color: #2a2a4a; /* Darker input background */
+    border: 1px solid #00bcd4;
+    background-color: #2a2a4a;
     color: #e0e0e0;
     font-size: 1rem;
     outline: none;
@@ -110,18 +97,18 @@ body, #root {
 }
 
 .form-input::placeholder {
-    color: #90a4ae; /* Lighter placeholder text */
+    color: #90a4ae;
 }
 
 .form-input:focus {
-    border-color: #00e5ff; /* Brighter cyan on focus */
+    border-color: #00e5ff;
     box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.4), inset 0 1px 3px rgba(0, 0, 0, 0.3);
-    background-color: #3a3a5a; /* Slightly lighter on focus */
+    background-color: #3a3a5a;
 }
 
 .radio-group {
     display: flex;
-    gap: 25px; /* Spacing between radio buttons */
+    gap: 25px;
     font-size: 1.1rem;
 }
 
@@ -138,28 +125,28 @@ body, #root {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    width: 22px; /* Larger size */
+    width: 22px;
     height: 22px;
     border-radius: 50%;
-    border: 2px solid #00bcd4; /* Cyan border */
-    background-color: #2a2a4a; /* Dark background */
+    border: 2px solid #00bcd4;
+    background-color: #2a2a4a;
     position: relative;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .form-radio:checked {
-    background-color: #00bcd4; /* Cyan when checked */
-    border-color: #00e5ff; /* Brighter cyan border when checked */
+    background-color: #00bcd4;
+    border-color: #00e5ff;
 }
 
 .form-radio:checked::before {
     content: '';
     display: block;
-    width: 10px; /* Inner dot size */
+    width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: white; /* White inner dot */
+    background-color: white;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -168,14 +155,14 @@ body, #root {
 
 .form-radio:focus {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.4); /* Glow on focus */
+    box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.4);
 }
 
 .action-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px; /* Space between icon and text */
+    gap: 12px;
     padding: 15px 25px;
     border-radius: 10px;
     font-size: 1.2rem;
@@ -187,7 +174,7 @@ body, #root {
 }
 
 .create-room-button {
-    background: linear-gradient(45deg, #00bcd4, #00e5ff); /* Cyan gradient */
+    background: linear-gradient(45deg, #00bcd4, #00e5ff);
     color: white;
     box-shadow: 0 8px 15px rgba(0, 188, 212, 0.4);
 }
@@ -199,7 +186,7 @@ body, #root {
 }
 
 .join-room-button {
-    background: linear-gradient(45deg, #4CAF50, #8bc34a); /* Green gradient */
+    background: linear-gradient(45deg, #4CAF50, #8bc34a);
     color: white;
     box-shadow: 0 8px 15px rgba(76, 175, 80, 0.4);
 }
@@ -222,18 +209,18 @@ body, #root {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    justify-content: space-between; /* Distribute space between items */
+    height: 100%; /* Take full height of #root */
     width: 100%;
-    padding: 20px;
+    padding: 20px; /* Overall padding for top/bottom space */
     box-sizing: border-box;
-    background: linear-gradient(135deg, #0f0f1a, #1a1a2e); /* Slightly different dark gradient */
+    background: transparent;
 }
 
 .call-title {
     font-size: 3rem;
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 0; /* Remove fixed margin-bottom */
     color: #00bcd4;
     text-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
 }
@@ -241,42 +228,152 @@ body, #root {
 .call-id {
     font-size: 1.2rem;
     color: #b0e0e6;
-    margin-bottom: 30px;
+    margin-bottom: 0; /* Remove fixed margin-bottom */
+    margin-top: 10px; /* Add a small margin-top for spacing from title */
 }
+
+/* Main content area: Video Grid and optional Editor */
+.main-call-content {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column */
+    /* Increased gap for visual separation */
+    gap: 30px; /* Increased from 20px */
+    width: 100%;
+    max-width: 1200px;
+    flex-grow: 1; /* Allow it to take available space vertically */
+    min-height: 0; /* Allow content to shrink if needed within flex-grow */
+    margin-top: auto; 
+    margin-bottom: auto;
+}
+
+/* When editor is active, switch to two columns on larger screens */
+.main-call-content.editor-active {
+    grid-template-columns: 1fr; /* Default: mobile layout */
+    flex-grow: 1;
+    height: 100%;
+    min-height: 0;
+    align-items: start;
+}
+
+
+@media (min-width: 1024px) { /* Adjust breakpoint as needed for side-by-side */
+    .main-call-content.editor-active {
+        grid-template-columns: 1fr 1fr; /* Two columns for video and editor */
+    }
+}
+
 
 .video-grid-container {
     width: 100%;
-    max-width: 1200px; /* Increased max-width for larger video area */
-    aspect-ratio: 16 / 9; /* Maintain aspect ratio */
     background-color: #0a0a1a; /* Very dark background for video area */
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(0, 188, 212, 0.3);
-    margin-bottom: 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
-    gap: 15px; /* Spacing between videos */
-    padding: 15px;
-    overflow: hidden; /* Ensure videos don't spill */
+    /* Standardized properties for consistency with code editor */
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.5); /* Simpler, more subtle glow */
     border: 2px solid #00bcd4; /* Cyan border */
+    padding: 15px; /* Standardized padding */
+    overflow: hidden; /* Ensure videos don't spill */
+    min-height: 200px; /* Ensure a minimum height for the grid */
+    flex-grow: 1; /* Allow video grid to grow in height */
+
+    /* Default: Grid layout for when editor is NOT active */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Larger videos, auto-fit */
+    align-items: center; /* Center videos vertically in grid cells */
+    justify-items: center; /* Center videos horizontally in grid cells */
+    gap: 15px; /* Spacing between videos */
 }
+
+/* New: Styles for when there is only one participant */
+.video-grid-container:has(.participant-video-wrapper:only-child) {
+    display: flex; /* Use flexbox for single item */
+    justify-content: center; /* Center the single video horizontally */
+    align-items: center; /* Center the single video vertically */
+    height: 100%; /* Take full height of its parent */
+    /* Remove minmax and auto-fit grid properties for single view */
+    grid-template-columns: unset;
+    grid-template-rows: unset;
+}
+
+/* Styles for two participants when editor is NOT active */
+/* This is the key change for side-by-side square videos */
+.video-grid-container:not(.editor-active):has(.participant-video-wrapper:nth-child(2)) {
+    display: grid; /* Ensure it's a grid */
+    grid-template-columns: 1fr 1fr; /* Two columns for two videos */
+    height: 100%; /* Take full height of its parent */
+    max-height: 500px; /* Limit max height for two videos side-by-side */
+    align-items: center; /* Center videos vertically in grid cells */
+    justify-items: center; /* Center videos horizontally in grid cells */
+    gap: 20px; /* Space between the two videos */
+}
+
+
+/* When editor IS active: Video grid changes to column layout */
+.main-call-content.editor-active .video-grid-container {
+    display: flex; /* Change to flexbox */
+    flex-direction: column; /* Stack videos vertically */
+    align-items: center; /* Center stacked videos horizontally */
+    /* Changed to stretch for better vertical distribution of videos to fill space */
+    justify-content: space-evenly; /* Distribute space evenly among videos */
+    overflow-y: auto; /* Allow scrolling if many videos */
+    height: 500px; /* Take full height of its grid column */
+    max-height: none;
+    /* Standardized padding and gap for consistency */
+    padding: 15px; 
+    gap: 15px; 
+    flex-wrap: wrap; /* Allow videos to wrap if necessary */
+    flex-grow: 0; /* Allow it to grow within the main-call-content.editor-active */
+    min-height: 0; /* Allow shrinking */
+}
+
 
 .participant-video-wrapper {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Take full width of grid cell (or flex item) */
     background-color: #2a2a4a; /* Dark background if video not loaded */
     border-radius: 10px;
-    overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    display: flex;
+    display: flex; /* Use flex to center content inside wrapper */
     align-items: center;
     justify-content: center;
+    aspect-ratio: 1/1; /* Default to square for all videos */
 }
 
+/* New: Adjust single participant video wrapper */
+.video-grid-container:has(.participant-video-wrapper:only-child) .participant-video-wrapper {
+    width: 90%; /* Take up more width for a single video */
+    max-width: 700px; /* Max width for single video */
+    aspect-ratio: 16/9; /* Single video can be wider */
+    max-height: 70vh; /* Limit max height to prevent overflow on very tall screens */
+}
+
+/* Styles for two participants when editor is NOT active */
+/* Ensure square aspect ratio and proper sizing */
+.video-grid-container:not(.editor-active):has(.participant-video-wrapper:nth-child(2)) .participant-video-wrapper {
+    width: 95%; /* Take up most of the grid cell */
+    aspect-ratio: 1/1; /* Force square for two participants */
+    max-width: 350px; /* Limit individual video size */
+}
+
+
+/* Adjust participant video size when editor is active (stacked view) */
+.main-call-content.editor-active .video-grid-container .participant-video-wrapper {
+    width: 95%; /* Take up most of the column width */
+    max-width: 300px; /* Max width for individual stacked video */
+    aspect-ratio: 1/1; /* Force square for stacked videos */
+    height: auto; /* Allow height to adjust based on aspect-ratio */
+    flex-shrink: 0; /* Prevent shrinking too much */
+    flex-grow: 1; /* Allow them to grow */
+    min-height: 0; /* Allow shrinking */
+}
+
+
 .participant-video-wrapper video {
+    position: absolute; /* Position video absolutely within padded wrapper */
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* IMPORTANT: Use 'contain' to show full video, not 'cover' */
     display: block;
     border-radius: 10px; /* Match wrapper border-radius */
 }
@@ -294,7 +391,9 @@ body, #root {
 }
 
 .waiting-message {
-    grid-column: 1 / -1; /* Span all columns */
+    grid-column: 1 / -1; /* Span all columns in grid */
+    width: 100%; /* Take full width in flex */
+    height: 100%; /* Take full height in flex */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -302,6 +401,62 @@ body, #root {
     font-size: 1.8rem;
     text-align: center;
 }
+
+/* Code Editor Container Styles */
+.code-editor-container {
+    background-color: #1e1e1e; /* VS Code dark theme background */
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.5); /* Simpler, more subtle glow */
+    border: 2px solid #00bcd4; /* Cyan border */
+    padding: 15px; /* Standardized padding */
+    overflow: hidden; /* Important for editor to render correctly */
+    width: 100%;
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack language bar and editor */
+    flex-grow: 1; /* Allow it to grow within the main-call-content.editor-active */
+    min-height: 0; /* Allow shrinking */
+}
+
+@media (min-width: 1024px) {
+    .main-call-content.editor-active .code-editor-container {
+        height: 500px; /* Take full height of grid cell when side-by-side */
+    }
+}
+
+/* Language Selector Bar */
+.language-selector-bar {
+    display: flex;
+    justify-content: flex-start; /* Align buttons to start */
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #2a2a4a; /* Darker background for the bar */
+    border-bottom: 1px solid #00bcd4; /* Separator line */
+    gap: 10px; /* Space between buttons */
+}
+
+.lang-button {
+    background-color: #3a3a3a; /* Default button background */
+    color: #e0e0e0;
+    border: 1px solid #5a5a7a;
+    padding: 5px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.lang-button:hover {
+    background-color: #4a4a4a;
+    border-color: #00bcd4;
+}
+
+.lang-button.active {
+    background-color: #00bcd4; /* Active button color */
+    color: white;
+    border-color: #00e5ff;
+    font-weight: bold;
+}
+
 
 .call-controls {
     display: flex;
@@ -315,6 +470,7 @@ body, #root {
     border: 2px solid #00bcd4; /* Cyan border */
     backdrop-filter: blur(8px); /* Frosted glass */
     -webkit-backdrop-filter: blur(8px);
+    margin-top: 40px; /* Add some margin above controls */
 }
 
 .control-button {
@@ -354,6 +510,17 @@ body, #root {
 .screen-share-button:hover { background: linear-gradient(45deg, #8bc34a, #4CAF50); }
 .leave-button { background: linear-gradient(45deg, #f44336, #ff7043); } /* Red */
 .leave-button:hover { background: linear-gradient(45deg, #ff7043, #f44336); }
+
+/* Editor Toggle Button Active State */
+.code-editor-toggle-button.active {
+    background: linear-gradient(45deg, #FFA000, #FFC107); /* Orange/Amber for active editor */
+    box-shadow: 0 5px 10px rgba(255, 160, 0, 0.6);
+}
+.code-editor-toggle-button.active:hover {
+    background: linear-gradient(45deg, #FFC107, #FFA000);
+    box-shadow: 0 10px 20px rgba(255, 160, 0, 0.8);
+}
+
 
 .disabled-button {
     background: #4a4a4a !important; /* Darker grey for disabled */
